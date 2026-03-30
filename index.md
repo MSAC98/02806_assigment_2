@@ -9,7 +9,7 @@ It is often assumed that crime increases on weekneds due to nightlife and increa
 
 ## Does crime increase on weekends?
 
-![Crime by hour](images/crime_by_hour.png)
+![Crime by hour](images/crime_hour_distribution_weekday_vs_weekend.png)
 
 The overall number of crimes remains very similar between weekdays and weekends. While there are small differences throughout the day, there is no clear increase in total crime during weekends.
 
@@ -17,7 +17,7 @@ The overall number of crimes remains very similar between weekdays and weekends.
 
 ## Do different types of crime behave differently?
 
-![Crime type by hour](images/crime_type_by_hour.png)
+![Crime type by hour](images/crime_hour_distribution_by_type.png)
 
 Looking at individual crime types, the general patterns are quite similar. Theft dominates in both weekdays and weekends, peaking in the late afternoon. Burglary and assault also follow comparable daily trends.
 
@@ -35,7 +35,7 @@ Across all crime types, weekend activity is more concentrated during late-night 
 
 ## Key insight: Nighttime crime
 
-![Night share](images/night_share.png)
+!![Night share](images/night_crime_share_weekday_vs_weekend.png)
 
 The most striking difference appears for assault. During weekdays, around 45% of assaults occur at night, while on weekends this increases to approximately 57%.
 
@@ -47,6 +47,8 @@ Burglary and theft also show slight increases at night on weekends, but the effe
 ## Visual Exploration
 
 In order to further understand the differences between weekdays and weekends, we analyzed the distribution of crimes by time of day for different types of crimes.
+
+![Day vs Night](images/crime_day_night_distribution_weekday_vs_weekend.png)
 
 The hourly charts reveal that, while the overall patterns are similar, significant differences appear at specific times. Theft exhibits a steady daily cycle, peaking in the late afternoon on both weekdays and weekends. In contrast, assault shows a notable shift, with higher rates during late-night hours on weekends. Burglary shows more moderate variation, with slightly increased nighttime activity on weekends.
 
@@ -77,8 +79,8 @@ Violent crimes, especially assault, become more concentrated during nighttime ho
 
 ## Interactive Plots (optional)
 
-[View weekday interactive plot](plots/weekday_hourly_crime_distribution_by_type.html)  
-[View weekend interactive plot](plots/weekend_hourly_crime_distribution_by_type.html)
+[View weekday interactive plot](images/weekday_hourly_crime_distribution_by_type.html)  
+[View weekend interactive plot](images/weekend_hourly_crime_distribution_by_type.html)
 
 
 ## Next Steps
