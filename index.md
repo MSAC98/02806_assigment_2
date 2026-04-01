@@ -1,5 +1,15 @@
-# SF Crime Analysis: Do Crimes Change on Weekends?
+# 02806 Social Data Analysis: Assignment 2
 
+**Authors:** Chrysiida Drakopoulou, Nicola Davalli, Sammy Chauhan
+**Topic:** SF Crime Analysis: Do Crimes Change on Weekends?
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Does crime increase on weekends?](#does-crime-increase-on-weekends)
+- [Do different types of crime behave differently?](#do-different-types-of-crime-behave-differently)
+- [Key insight: nighttime crime](#key-insight-nighttime-crime)
+- [How We Did The Analysis](#how-we-did-the-analysis)
+- [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -9,7 +19,11 @@ It is often assumed that crime increases on weekneds due to nightlife and increa
 
 ## Does crime increase on weekends?
 
-![Crime by hour](images/crime_hour_distribution_weekday_vs_weekend.png)
+<p align="center">
+  <img src="images/crime_hour_distribution_weekday_vs_weekend.png" width="720">
+</p>
+
+<p align="center"><em>Figure 1: Overall hourly crime distribution for weekdays and weekends.</em></p>
 
 The overall number of crimes remains very similar between weekdays and weekends. While there are small differences throughout the day, there is no clear increase in total crime during weekends.
 
@@ -17,7 +31,11 @@ The overall number of crimes remains very similar between weekdays and weekends.
 
 ## Do different types of crime behave differently?
 
-![Crime type by hour](images/crime_hour_distribution_by_type.png)
+<p align="center">
+  <img src="images/crime_hour_distribution_by_type.png" width="760">
+</p>
+
+<p align="center"><em>Figure 2: Hourly distributions for theft, assault, and burglary on weekdays and weekends.</em></p>
 
 Looking at individual crime types, the general patterns are quite similar. Theft dominates in both weekdays and weekends, peaking in the late afternoon. Burglary and assault also follow comparable daily trends.
 
@@ -35,11 +53,23 @@ Across all crime types, weekend activity is more concentrated during late-night 
 
 ## Key insight: Nighttime crime
 
-!![Night share](images/night_crime_share_weekday_vs_weekend.png)
+<p align="center">
+  <img src="images/night_crime_share_weekday_vs_weekend.png" width="620">
+</p>
+
+<p align="center"><em>Figure 3: Share of crimes occurring at night for selected crime types.</em></p>
 
 The most striking difference appears for assault. During weekdays, around 45% of assaults occur at night, while on weekends this increases to approximately 57%.
 
 Burglary and theft also show slight increases at night on weekends, but the effect is much smaller. This suggests that violent crime is more influenced by weekend behavior than property crime.
+
+<p align="center">
+  <img src="images/crime_day_night_distribution_weekday_vs_weekend.png" width="760">
+</p>
+
+<p align="center"><em>Figure 4: Day-versus-night comparison by crime type.</em></p>
+
+These results suggest that the key weekend effect is not more crime overall, but a shift in when crime happens, especially for violent crime.
 
 ---
 
@@ -71,7 +101,7 @@ Finally, we grouped the data into day and night periods to highlight broader tem
 
 ## Conclusion
 
-Crime does not increase on weekends — but it shifts in timing.
+Crime does not increase on weekends, but it shifts in timing.
 
 Violent crimes, especially assault, become more concentrated during nighttime hours, while property crimes such as theft remain relatively stable. This highlights how human activity patterns influence when crime occurs rather than how much crime occurs.
 
