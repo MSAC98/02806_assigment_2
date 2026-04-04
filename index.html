@@ -168,248 +168,70 @@
       <strong>Table of Contents</strong>
       <ul>
         <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#does-crime-increase-on-weekends">Does crime increase on weekends?</a></li>
-        <li><a href="#do-different-types-of-crime-behave-differently">Do different types of crime behave differently?</a></li>
-        <li><a href="#interactive-exploration">Interactive exploration</a></li>
-        <li><a href="#when-does-crime-happen">When does crime happen?</a></li>
-        <li><a href="#key-insight-nighttime-crime">Key insight: nighttime crime</a></li>
-        <li><a href="#how-we-did-the-analysis">How we did the analysis</a></li>
+        <li><a href="#nighttime-share">Nighttime share by crime type</a></li>
+        <li><a href="#spatial-context">Spatial context of SF crime patterns</a></li>
+        <li><a href="#hourly-weekend-profile">Hourly weekend profile by crime type</a></li>
         <li><a href="#conclusion">Conclusion</a></li>
+        <li><a href="#limitations">Limitations</a></li>
+        <li><a href="#references">References</a></li>
+        <li><a href="#contributions">Contributions</a></li>
       </ul>
     </div>
 
     <h2 id="introduction">Introduction</h2>
     <p>
-      It is often assumed that crime rates increase on weekends due to nightlife and increased levels of social activity. 
-      But is this really the case or does crime simply shifts in less obvious ways? In this analysis, we explore how crime patterns differ between weekdays and weekends, 
-      focusing on the timing of crimes rather than just their frequency. By examining hourly distributions for different crime types, 
-      we aim to uncover whether weekends lead to more crime overall or just a change in when crime occurs.
+      It is often assumed that crime increases on weekends due to nightlife and increased social activity. In this analysis, we investigate whether crime in San Francisco (SF) actually becomes more frequent on weekends and if not, whether its patterns change in more subtle ways.
     </p>
-
     <p>
-        To investigate this question, we analyze the crime dataset for San Francisco, which covers the period from 2003 to 2025. 
-        Instead of examining all categories of crime, we focus on three main types thefts, assaults, and burglaries. 
-        These represent different forms of crime, ranging from property-related incidents to more violent offenses, allowing us to investigate whether different types of crimes behave differently over time.
+      Using SF crime data, we compare weekdays and weekends across three crime types: assaults, burglary, and theft. Our story is aimed at a general audience and focuses on a key insight: weekend effects are mostly temporal, not overall volume changes.
     </p>
-
-    <p> 
-        Instead of comparing only the number of crimes, we focus on when they occur. By examining hourly patterns and comparing weekdays with weekends, 
-        we aim to reveal whether crime follows different daily rhythms depending on the day of the week.
+    <hr>
+    <h2 id="nighttime-share">Nighttime share by crime type</h2>
+    <p align="center">
+      <img src="images/night_crime_share_weekday_vs_weekend.png" width="760">
     </p>
-
-    <h2 id="does-crime-increase-on-weekends">Does crime increase on weekends?</h2>
-
-    <figure>
-      <img src="images/crime_hour_distribution_weekday_vs_weekend.png" alt="Overall hourly crime distribution for weekdays and weekends" width="720">
-      <figcaption>Figure 1: Overall hourly crime distribution for weekdays and weekends.</figcaption>
-    </figure>
-
-    <p>
-        The overall number of crimes remains very similar between weekdays and weekends. While there are small
-        differences throughout the day, there is no clear increase in total crime during weekends. This challenges
-        the common expectation that weekends are significantly more crime-heavy due to increased social activity.
+    <p align="center"><em>Figure 1: Share of incidents occurring at night for assault, burglary, and theft on weekdays vs weekends. Assault shows the clearest weekend night shift, while burglary and theft change less.</em></p>
+    <p>The overall number of crimes remains very similar between weekdays and weekends. While there are small differences throughout the day, there is no clear increase in total crime during weekends.</p>
+    <hr>
+    <h2 id="spatial-context">Spatial context of SF crime patterns</h2>
+    <p align="center">
+      <a href="plots/sf_crime_map.html" target="_blank">Open interactive SF crime map</a>
     </p>
-
-    <p>
-        Instead, the graph shows that crime rates follow a fairly steady daily pattern, regardless of the time of day.
-        In both cases, crime rates are lowest in the early morning hours and rise gradually throughout the day, peaking
-        in the late afternoon and evening. One notable difference is that weekends show slightly higher activity during the
-        late night hours (roughly from midnight to the early morning hours), while on weekdays a more pronounced peak is observed 
-        in the early evening.
+    <p align="center"><em>Figure 2. Interactive map of crime incidents in San Francisco. The map adds geographic context and shows where incidents are concentrated across the city.</em></p>
+    <p>The map complements the timing analysis by showing where incidents cluster. Even if total weekday/weekend volume is similar, location patterns and neighborhood concentration still matter for interpretation.</p>
+    <hr>
+    <h2 id="hourly-weekend-profile">Hourly weekend profile by crime type</h2>
+    <p align="center">
+      <a href="plots/weekend_hourly_crime_distribution_by_type.html" target="_blank">Open interactive weekend hourly chart</a>
     </p>
-
-    <p>
-        These findings suggest that, rather than increasing overall, crime on weekends may simply be shifting
-        to different times of the day. This prompts us to examine specific types of crimes more closely in order to understand whether
-        certain categories, such as theft, assault, or burglary exhibit different patterns on weekdays and weekends.
-    </p>
-
-    <h2 id="do-different-types-of-crime-behave-differently">Do different types of crime behave differently?</h2>
-
-    <figure>
-      <img src="images/crime_hour_distribution_by_type.png" alt="Hourly distributions for theft, assault, and burglary on weekdays and weekends" width="760">
-      <figcaption>Figure 2: Hourly distributions for theft, assault, and burglary on weekdays and weekends.</figcaption>
-    </figure>
-
-    <p>
-        If we examine specific types of crimes, the general trends are quite similar. Thefts are most common both on weekdays
-        and weekends, peaking in the late afternoon and early evening. Burglaries and assaults also follow similar
-        daily patterns, with activity increasing throughout the day and reaching higher levels later on. However,
-        small but significant differences begin to emerge when we examine the time frame more closely.
-    </p>
-
-    <p>
-        As for thefts, on weekdays there is a more pronounced spike in the early evening, while on weekends activity is distributed more evenly
-        throughout the afternoon and night. Assaults, on the other hand, show a notable shift toward the late hours of the night
-        on weekends, with increased activity around midnight compared to weekdays. This is consistent with expectations
-        of increased nightlife and social interactions during weekends. Burglaries exhibit a slightly different
-        pattern, with less pronounced peaks but a tendency toward higher activity in the late afternoon and evening,
-        particularly on weekdays.
-    </p>
-
-    <p>
-        Overall, while the total amount of crime does not increase on weekends, the composition and temporal distribution of crimes
-        change slightly. Specifically, crimes more closely related to social factors, such as physical assaults, are clustered more in the late hours of the night
-        during weekends, while property crimes, such as thefts, remain at steady levels throughout the day. This
-        suggests that crime on weekends is not higher, but is distributed differently both in terms of time and type of crime.
-    </p>
-
-    <h2 id="interactive-exploration">Interactive exploration</h2>
-
-    <p>
-      While the static plots above summarize the main trends, they compress several patterns into a single view.
-      To make these comparisons easier to explore, we also created interactive versions of the hourly crime plots.
-      These allow the reader to focus on one crime type at a time and compare how its distribution changes between
-      weekdays and weekends.
-    </p>
-
-    <p class="note">
-      Use the legend inside each plot to toggle crime categories on and off.
-    </p>
-
-    <div class="interactive-block">
-      <iframe
-        class="interactive-frame"
-        src="plots/weekday_hourly_crime_distribution_by_type.html"
-        title="Interactive weekday hourly crime distribution by type">
-      </iframe>
-      <figure class="narrow">
-        <figcaption>Figure 3: Interactive weekday hourly crime distributions for assault, burglary, and theft.</figcaption>
-      </figure>
-    </div>
-
-    <div class="interactive-block">
-      <iframe
-        class="interactive-frame"
-        src="plots/weekend_hourly_crime_distribution_by_type.html"
-        title="Interactive weekend hourly crime distribution by type">
-      </iframe>
-      <figure class="narrow">
-        <figcaption>Figure 4: Interactive weekend hourly crime distributions for assault, burglary, and theft.</figcaption>
-      </figure>
-    </div>
-
-    <p>
-        The interactive graphs make these trends more visible, as they allow for a detailed analysis of each type of crime individually.
-        In particular, assaults show a clear shift toward the late hours of the night on weekends, with a notable increase
-        after midnight compared to weekdays. This suggests a stronger link to social activities and nightlife.
-    </p>
-
-    <p>
-        Theft, on the other hand, follows a much more consistent pattern. It consistently peaks in the late afternoon and early evening
-        both on weekdays and weekends, suggesting that it is less influenced by changes in social behavior and is more closely linked to
-        daily habits. Burglary falls somewhere in between, showing slight fluctuations but no dramatic changes over time.
-    </p>
-
-    <p>
-        Overall, these patterns support the idea that weekends do not lead to an increase in crime overall, but do influence when
-        certain crimes are more likely to be committed. The interactive visualizations emphasize that these differences are subtle
-        and refer to specific categories, rather than representing large-scale changes in the overall level of crime
-    </p>
-
-    <h2 id="when-does-crime-happen">When does crime happen?</h2>
-
-    <p>
-        Even though, the total number of crimes does not differ significantly between weekdays and weekends, the same cannot be said for the time of day they are committed.
-        For all types of crimes, weekend activity is focused more on the late hours of the night, especially regarding physical assaults, while
-        crimes on weekdays tend to peak earlier in the evening. This shift suggests that the timing patterns of crime are influenced
-        more by daily routines and social behavior than by the day of the week itself.
-    </p>
-
-    <h2 id="key-insight-nighttime-crime">Key insight: nighttime crime</h2>
-
-    <figure class="narrow">
-      <img src="images/night_crime_share_weekday_vs_weekend.png" alt="Share of crimes occurring at night for selected crime types" width="620">
-      <figcaption>Figure 5: Share of crimes occurring at night for selected crime types.</figcaption>
-    </figure>
-
-    <p>
-        The most significant difference is observed in cases of violence. On weekdays, approximately 45% of violent incidents occur at night,
-        while on weekends this percentage rises to about 57%. This is a significant change and highlights
-        the fact that violent crimes are clustered to a much greater extent during the late hours on weekends.
-    </p>
-
-    <p>
-        Burglaries and thefts also show a slight increase in their proportion of nighttime activity on weekends, but this
-        effect is much smaller. Their distribution remains fairly balanced between day and night, indicating
-        that these types of crimes are less affected by changes in social behavior throughout the week.
-    </p>
-
-    <p>
-        This contrast confirms a key finding of our analysis: while overall crime rates remain stable, different
-        types of crime respond differently over the weekend. Specifically, physical assaults appear to be closely linked to
-        nighttime social activity, while property crimes, such as theft and burglary, follow more consistent
-        daily patterns.
-    </p>
-
-    <p>
-        Overall, the results show that weekends do not lead to an increase in crime, but rather to a shift toward more
-        nighttime and socially motivated incidents, especially when it comes to violent crimes.
-    </p>
-
-    <figure>
-      <img src="images/crime_day_night_distribution_weekday_vs_weekend.png" alt="Day-versus-night comparison by crime type" width="760">
-      <figcaption>Figure 6: Day-versus-night comparison by crime type.</figcaption>
-    </figure>
-
-    <p>
-        These results show that the main effect of the weekend is not an increase in overall crime, but a shift in the time
-        when crimes are committed. Across all categories, nighttime activity intensifies on weekends, but this effect
-        is particularly evident in the case of physical assaults.
-    </p>
-
-    <p>
-        While thefts and burglaries remain relatively evenly distributed between day and night, assaults show a clear
-        shift from a predominantly daytime pattern on weekdays to a predominantly nighttime pattern on weekends.
-        This supports the idea that violent crimes are more closely linked to social activities and nightlife-related activities,
-        while property crimes follow more consistent and routine patterns.
-    </p>
-
-    <p>
-        Overall, the findings suggest that crime depends more on everyday behavior and habits than
-        on the simple differentiation between weekdays and weekends. Instead of increasing the number of crimes, weekends
-        primarily shift their temporal distribution, moving certain types of incidents to later hours.
-    </p>
-
-    <h2 id="how-we-did-the-analysis">How we did the analysis</h2>
-
-    <p>
-        We used a dataset of reported crimes in San Francisco for the period 2003–2025. From the timing of each
-        incident, we extracted temporal characteristics such as the time of day and the day of the week. Based on these, each observation
-        was classified as either weekday or weekend.
-    </p>
-
-    <p>
-        We then focused on three categories of crimes, such as, theft, assault, and burglary and estimated the standardized hourly
-        distributions. In particular, for each crime category and for each day of the week, we calculated the percentage of incidents
-        that occurred every hour. This allows for a fair comparison between weekdays and weekends, regardless of
-        differences in the total number of crime.
-    </p>
-
-    <p>
-        Finally, to identify longer-term patterns, we further grouped the data into day and night periods. Using this
-        classification, we calculated the percentage of crimes committed at night for each type of crime, thereby facilitating
-        a comparison of changes in the time of day crimes are committed between weekdays and weekends.
-    </p>
-
+    <p align="center"><em>Figure 3. Interactive hourly distribution for assault, burglary, and theft during weekends. Use the legend to toggle crime types and compare their peak hours.</em></p>
+    <p>This interactive chart helps the reader inspect how each crime type behaves over the 24-hour cycle. It supports the main narrative that weekend dynamics are driven by timing differences, especially for violent crime.</p>
+    <hr>
     <h2 id="conclusion">Conclusion</h2>
-
-    <p>
-        Crime does not increase on weekends, but its timing does change. While the total number of crimes remains
-        relatively stable, their distribution throughout the day changes significantly.
-    </p>
-
-    <p>
-        In addition, violent crimes, such as physical assaults, are more likely to occur during the night on weekends,
-        reflecting the impact of social activities and nightlife. In contrast, property crimes, such as theft
-        and burglary, follow more consistent patterns and are less affected by the shift from weekdays to weekends.
-    </p>
-
-    <p>
-        In summary, these results indicate that crime is influenced more by people’s daily habits and behavior than by the
-        simple difference between weekdays and weekends. On weekends, rather than increasing the number of crimes,
-        they mainly shift the time when particular types of incidents are most likely to occur.
-    </p>
+    <p>Crime does not appear to increase dramatically on weekends in total volume. Instead, the main weekend effect is a <strong>shift in timing</strong>, with a stronger concentration of incidents during nighttime hours—most clearly for assault.</p>
+    <p>This distinction is important: if we only look at totals, we miss meaningful behavioral patterns in when crimes occur.</p>
+    <hr>
+    <h2 id="limitations">Limitations and critical interpretation</h2>
+    <ul>
+      <li>Crime data reflects reported/incorporated incidents, not all incidents that occur.</li>
+      <li>Observed differences may reflect reporting practices or enforcement intensity, not only true behavioral change.</li>
+      <li>This analysis is descriptive and does not establish causality.</li>
+    </ul>
+    <hr>
+    <h2 id="references">References</h2>
+    <ul>
+      <li>San Francisco Police Department incident dataset (course workflow source).</li>
+      <li>Richardson, R., Schultz, J., & Crawford, K. (2019). <em>Dirty Data, Bad Predictions: How Civil Rights Violations Impact Police Data, Predictive Policing Systems, and Justice</em>.</li>
+      <li>Additional context sources can be added here (news, policy reports, neighborhood background).</li>
+    </ul>
+    <hr>
+    <h2 id="contributions">Contributions</h2>
+    <p>All group members contributed approximately equally to the assignment.</p>
+    <ul>
+      <li><strong>Chrysiida Drakopoulou:</strong> Data preparation, narrative drafting, and interpretation review.</li>
+      <li><strong>Nicola Davalli:</strong> Visualization development, figure export/embedding, and layout refinement.</li>
+      <li><strong>Sammy Chauhan:</strong> Analysis design, interactive plot integration, and final editing/quality checks.</li>
+    </ul>
   </div>
 </body>
 </html>
