@@ -13,105 +13,79 @@
 
 ## Introduction
 
-It is often assumed that crime increases on weekneds due to nightlife and increased social activity. In this analysis, we investigate whether crime actually becomes more frequent on weekneds and if not, whether its patterns change in more subtle ways.
+It is often assumed that crime increases on weekends due to nightlife and increased social activity. In this analysis, we investigate whether crime in San Fransisco (SF) actually becomes more frequent on weekends and if not, whether its patterns change in more subtle ways.
+
+Using SF crime data, we will compare weekdays and weekends across three crome types, assaults, burglary, and theft.
+Our story is aimed to a general audience and focuses on a key insight: weekend effects are mostly temporal, not overall colume changes. 
 
 ---
 
-## Does crime increase on weekends?
+## Nighttime share by crime type
 
 <p align="center">
-  <img src="images/crime_hour_distribution_weekday_vs_weekend.png" width="720">
+  <img src="images/night_crime_share_weekday_vs_weekend.png" width="760">
 </p>
 
-<p align="center"><em>Figure 1: Overall hourly crime distribution for weekdays and weekends.</em></p>
+<p align="center"><em>Figure 1: Share of incidents occurring at night for assault, burglary, and theft on weekdays vs weekends. Assault shows the clearest weekend night shift, while burglary and theft change less</em></p>
 
 The overall number of crimes remains very similar between weekdays and weekends. While there are small differences throughout the day, there is no clear increase in total crime during weekends.
 
 ---
 
-## Do different types of crime behave differently?
-
+## Spatial context of SF crime patterns
+## Map missing remember to upload it
 <p align="center">
-  <img src="images/crime_hour_distribution_by_type.png" width="760">
+  <a href="plots/sf_crime_map.html" target="_blank">Open interactive SF crime map</a>
 </p>
 
-<p align="center"><em>Figure 2: Hourly distributions for theft, assault, and burglary on weekdays and weekends.</em></p>
+<p align="center"><em>Figure 2. Interactive map of crime incidents in San Francisco. The map adds geographic context and shows where incidents are concentrated across the city.</em></p>
 
-Looking at individual crime types, the general patterns are quite similar. Theft dominates in both weekdays and weekends, peaking in the late afternoon. Burglary and assault also follow comparable daily trends.
-
-However, small differences begin to appear when we look more closely at timing.
-
----
-
-## When does crime happen?
-
-Although the total number of crimes does not change significantly, their timing does.
-
-Across all crime types, weekend activity is more concentrated during late-night hours, while weekday crime tends to peak earlier in the evening.
+The map complements the timing analysis by showing where incidents cluster. 
+Even if total weekday/weekend volume is similar, location patterns and neighborhood concentration still matter for intepretation.
 
 ---
 
-## Key insight: Nighttime crime
+## Hourly weekend profile by crime type
 
 <p align="center">
-  <img src="images/night_crime_share_weekday_vs_weekend.png" width="620">
+  <a href="plots/weekend_hourly_crime_distribution_by_type.html" target="_blank">Open interactive weekend hourly chart</a>
 </p>
 
-<p align="center"><em>Figure 3: Share of crimes occurring at night for selected crime types.</em></p>
+<p align="center"><em>Figure 3. Interactive hourly distribution for assault, burglary, and theft during weekends. Use the legend to toggle crime types and compare their peak hours.</em></p>
 
-The most striking difference appears for assault. During weekdays, around 45% of assaults occur at night, while on weekends this increases to approximately 57%.
+This interactive chart helps the reader inspect how each crime type behaves over the 24-hour cycle.  
+It supports the main narrative that weekend dynamics are driven by timing differences, especially for violent crime.
 
-Burglary and theft also show slight increases at night on weekends, but the effect is much smaller. This suggests that violent crime is more influenced by weekend behavior than property crime.
+## Conclusion 
 
-<p align="center">
-  <img src="images/crime_day_night_distribution_weekday_vs_weekend.png" width="760">
-</p>
+Crime does not appear to increase dramatically on weekends in total volume.  
+Instead, the main weekend effect is a **shift in timing**, with a stronger concentration of incidents during nighttime hours—most clearly for assault.
 
-<p align="center"><em>Figure 4: Day-versus-night comparison by crime type.</em></p>
-
-These results suggest that the key weekend effect is not more crime overall, but a shift in when crime happens, especially for violent crime.
+This distinction is important: if we only look at totals, we miss meaningful behavioral patterns in when crimes occur.
 
 ---
 
+## Limitations and critical interpretation
 
-## Visual Exploration
-
-In order to further understand the differences between weekdays and weekends, we analyzed the distribution of crimes by time of day for different types of crimes.
-
-The hourly charts reveal that, while the overall patterns are similar, significant differences appear at specific times. Theft exhibits a steady daily cycle, peaking in the late afternoon on both weekdays and weekends. In contrast, assault shows a notable shift, with higher rates during late-night hours on weekends. Burglary shows more moderate variation, with slightly increased nighttime activity on weekends.
-
-These illustrations highlight that the key difference is not the total number of crimes, but when they occur.
+- Crime data reflects reported/incorporated incidents, not all incidents that occur.
+- Observed differences may reflect reporting practices or enforcement intensity, not only true behavioral change.
+- This analysis is descriptive and does not establish causality.
 
 ---
 
-## How We Did The Analysis
+## References
 
-We used a dataset on reported crimes and first converted the timestamps into structured temporal features, such as the time of day and the day of the week. Based on the day of the week, each observation was classified as either a weekday or a weekend day.
-
-We then selected a subset of crime types (theft, assault, and burglary) and calculated normalized hourly distributions. This means that for each category, we calculated the percentage of crimes occurring every hour, allowing for a fair comparison between weekdays and weekends, regardless of the total number.
-
-Finally, we grouped the data into day and night periods to highlight broader temporal patterns and calculated the percentage of crimes occurring at night for each crime type.
-
-
-## Code
+- San Francisco Police Department incident dataset (course workflow source).
+- Richardson, R., Schultz, J., & Crawford, K. (2019). *Dirty Data, Bad Predictions: How Civil Rights Violations Impact Police Data, Predictive Policing Systems, and Justice*.
+- Additional context sources can be added here (news, policy reports, neighborhood background).
 
 ---
 
-## Conclusion
+## Contributions
 
-Crime does not increase on weekends, but it shifts in timing.
+All group members contributed approximately equally to the assignment.
 
-Violent crimes, especially assault, become more concentrated during nighttime hours, while property crimes such as theft remain relatively stable. This highlights how human activity patterns influence when crime occurs rather than how much crime occurs.
-
----
-
-## Interactive Plots
-
-[View weekday interactive plot](plots/weekday_hourly_crime_distribution_by_type.html)  
-[View weekend interactive plot](plots/weekend_hourly_crime_distribution_by_type.html)
-
-
-## Next Steps
-
-- Please let us know if we should focus elsewhere or try a different visualization.
-- Want to change the main topic? We’re open!
+- **Chrysiida Drakopoulou:** Data preparation, narrative drafting, and interpretation review.  
+- **Nicola Davalli:** Visualization development, figure export/embedding, and layout refinement.  
+- **Sammy Chauhan:** Analysis design, interactive plot integration, and final editing/quality checks.
+  
