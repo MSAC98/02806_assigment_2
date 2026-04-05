@@ -51,12 +51,6 @@
       padding-bottom: 8px;
     }
 
-    h3 {
-      font-size: 1.15rem;
-      margin-top: 28px;
-      margin-bottom: 8px;
-    }
-
     p {
       margin: 14px 0;
       font-size: 1.06rem;
@@ -120,28 +114,14 @@
       font-style: italic;
     }
 
-    .narrow {
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .interactive-block {
-      margin: 26px 0 34px;
-    }
-
     .interactive-frame {
       width: 100%;
-      height: 540px;
+      height: 560px;
       border: 1px solid var(--line);
       border-radius: 4px;
       display: block;
       background: #fff;
-    }
-
-    .note {
-      color: var(--muted);
-      font-size: 0.98rem;
+      margin: 22px 0 8px;
     }
 
     ul {
@@ -180,57 +160,114 @@
 
     <h2 id="introduction">Introduction</h2>
     <p>
-      It is often assumed that crime increases on weekends due to nightlife and increased social activity. In this analysis, we investigate whether crime in San Francisco (SF) actually becomes more frequent on weekends and if not, whether its patterns change in more subtle ways.
+      It is often assumed that crime increases on weekends due to nightlife and increased social activity.
+      In this analysis, we investigate whether crime in San Francisco actually becomes more frequent on weekends
+      and, if not, whether its patterns change in more subtle ways.
     </p>
     <p>
-      Using SF crime data, we compare weekdays and weekends across three crime types: assaults, burglary, and theft. Our story is aimed at a general audience and focuses on a key insight: weekend effects are mostly temporal, not overall volume changes.
+      Using SF crime data, we compare weekdays and weekends across three crime types: assault, burglary, and theft.
+      Our main finding is that the weekend effect is not primarily about higher crime volume, but about a shift in
+      <em>when</em> crime occurs.
     </p>
+
     <hr>
+
     <h2 id="nighttime-share">Nighttime share by crime type</h2>
-    <p align="center">
-      <img src="images/night_crime_share_weekday_vs_weekend.png" width="760">
+    <figure>
+      <img src="images/night_crime_share_weekday_vs_weekend.png" width="760" alt="Night share by crime type">
+      <figcaption>Figure 1: Share of incidents occurring at night for assault, burglary, and theft on weekdays versus weekends. Assault shows the clearest weekend night shift, while burglary and theft change less.</figcaption>
+    </figure>
+
+    <p>
+      The most visible change appears for assault. Compared with weekdays, a noticeably larger share of assaults happens
+      at night on weekends. Burglary and theft also shift slightly toward the night, but much less dramatically.
     </p>
-    <p align="center"><em>Figure 1: Share of incidents occurring at night for assault, burglary, and theft on weekdays vs weekends. Assault shows the clearest weekend night shift, while burglary and theft change less.</em></p>
-    <p>The overall number of crimes remains very similar between weekdays and weekends. While there are small differences throughout the day, there is no clear increase in total crime during weekends.</p>
+    <p>
+      This suggests that weekend dynamics affect violent crime more strongly than property crime, likely reflecting
+      changes in nightlife and late-evening social activity.
+    </p>
+
     <hr>
+
     <h2 id="spatial-context">Spatial context of SF crime patterns</h2>
-    <p align="center">
-      <a href="plots/sf_crime_map.html" target="_blank">Open interactive SF crime map</a>
+    <iframe
+      class="interactive-frame"
+      src="plots/sf_crime_map.html"
+      title="Interactive San Francisco crime map">
+    </iframe>
+    <figure>
+      <figcaption>Figure 2: Interactive map of crime incidents in San Francisco. The map adds geographic context and shows where incidents are concentrated across the city.</figcaption>
+    </figure>
+
+    <p>
+      The map complements the temporal analysis by showing that crime is not evenly distributed across the city.
+      Some neighborhoods contain much denser concentrations of incidents than others, which suggests that place matters
+      alongside time.
     </p>
-    <p align="center"><em>Figure 2. Interactive map of crime incidents in San Francisco. The map adds geographic context and shows where incidents are concentrated across the city.</em></p>
-    <p>The map complements the timing analysis by showing where incidents cluster. Even if total weekday/weekend volume is similar, location patterns and neighborhood concentration still matter for interpretation.</p>
+    <p>
+      Although our main story focuses on weekdays versus weekends, the spatial distribution helps contextualize how
+      urban structure and activity centers may shape when and where crime is reported.
+    </p>
+
     <hr>
+
     <h2 id="hourly-weekend-profile">Hourly weekend profile by crime type</h2>
-    <p align="center">
-      <a href="plots/weekend_hourly_crime_distribution_by_type.html" target="_blank">Open interactive weekend hourly chart</a>
+    <iframe
+      class="interactive-frame"
+      src="plots/weekend_hourly_crime_distribution_by_type.html"
+      title="Interactive weekend hourly crime chart">
+    </iframe>
+    <figure>
+      <figcaption>Figure 3: Interactive hourly distribution for assault, burglary, and theft during weekends. Use the legend to toggle crime types and compare their peak hours.</figcaption>
+    </figure>
+
+    <p>
+      This interactive chart makes it easier to inspect the 24-hour rhythm of each crime type separately. Assault
+      becomes more concentrated late at night, while theft follows a more routine daily pattern and burglary shows
+      a smaller shift.
     </p>
-    <p align="center"><em>Figure 3. Interactive hourly distribution for assault, burglary, and theft during weekends. Use the legend to toggle crime types and compare their peak hours.</em></p>
-    <p>This interactive chart helps the reader inspect how each crime type behaves over the 24-hour cycle. It supports the main narrative that weekend dynamics are driven by timing differences, especially for violent crime.</p>
+    <p>
+      Together with Figure 1, this supports the main narrative of the page, weekends do not simply generate more crime,
+      but instead reorganize crime in time, especially for violent incidents.
+    </p>
+
     <hr>
+
     <h2 id="conclusion">Conclusion</h2>
-    <p>Crime does not appear to increase dramatically on weekends in total volume. Instead, the main weekend effect is a <strong>shift in timing</strong>, with a stronger concentration of incidents during nighttime hours—most clearly for assault.</p>
-    <p>This distinction is important: if we only look at totals, we miss meaningful behavioral patterns in when crimes occur.</p>
+    <p>
+      Crime does not appear to increase dramatically on weekends in total volume. Instead, the main weekend effect is a
+      <strong>shift in timing</strong>, with a stronger concentration of incidents during nighttime hours, most clearly for assault.
+    </p>
+    <p>
+      This distinction matters because aggregate totals can hide meaningful behavioral patterns. Looking only at the number
+      of incidents would miss the fact that weekend crime changes in rhythm rather than scale.
+    </p>
+
     <hr>
+
     <h2 id="limitations">Limitations and critical interpretation</h2>
     <ul>
-      <li>Crime data reflects reported/incorporated incidents, not all incidents that occur.</li>
-      <li>Observed differences may reflect reporting practices or enforcement intensity, not only true behavioral change.</li>
+      <li>Crime data reflects reported or recorded incidents, not all incidents that occur.</li>
+      <li>Observed differences may partly reflect reporting practices or enforcement intensity, not only true behavioral change.</li>
       <li>This analysis is descriptive and does not establish causality.</li>
     </ul>
+
     <hr>
+
     <h2 id="references">References</h2>
     <ul>
-      <li>San Francisco Police Department incident dataset (course workflow source).</li>
+      <li>San Francisco Police Department incident dataset used through the course workflow.</li>
       <li>Richardson, R., Schultz, J., & Crawford, K. (2019). <em>Dirty Data, Bad Predictions: How Civil Rights Violations Impact Police Data, Predictive Policing Systems, and Justice</em>.</li>
-      <li>Additional context sources can be added here (news, policy reports, neighborhood background).</li>
     </ul>
+
     <hr>
+
     <h2 id="contributions">Contributions</h2>
     <p>All group members contributed approximately equally to the assignment.</p>
     <ul>
       <li><strong>Chrysiida Drakopoulou:</strong> Data preparation, narrative drafting, and interpretation review.</li>
-      <li><strong>Nicola Davalli:</strong> Visualization development, figure export/embedding, and layout refinement.</li>
-      <li><strong>Sammy Chauhan:</strong> Analysis design, interactive plot integration, and final editing/quality checks.</li>
+      <li><strong>Nicola Davalli:</strong> Visualization development, figure export and embedding, and layout refinement.</li>
+      <li><strong>Sammy Chauhan:</strong> Analysis design, interactive plot integration, and final editing and quality checks.</li>
     </ul>
   </div>
 </body>
