@@ -25,7 +25,7 @@ The main conclusion is that the weekend effect is not primarily an increase in t
 
 ## Live Data Story
 
-**[View the project website](https://msac98.github.io/02806_assigment_2/)**
+**[[View the project website](https://msac98.github.io/02806_assigment_2/index.html)]**
 
 ---
 
