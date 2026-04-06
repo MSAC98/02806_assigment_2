@@ -1,7 +1,8 @@
 import pandas as pd
 import folium
+from folium.plugins import HeatMap
 
-df = pd.read_csv('sf_crime_2003_2025.csv.gz')
+df = pd.read_csv('data/sf_crime_2003_2025.csv.gz')
 
 # Finding latitude and longitude columns
 def find_lat_lon_columns(df):
@@ -18,7 +19,10 @@ df[lat_col] = df[lat_col].astype(str).str.replace(',', '.', regex=False)
 df[lon_col] = df[lon_col].astype(str).str.replace(',', '.', regex=False)
 
 # Drop rows with missing or invalid coordinates
-df = df[pd.to_numeric(df[lat_col], errors='coerce').notnull() & pd.to_numeric(df[lon_col], errors='coerce').notnull()]
+df = df[
+    pd.to_numeric(df[lat_col], errors='coerce').notnull() &
+    pd.to_numeric(df[lon_col], errors='coerce').notnull()
+]
 df[lat_col] = df[lat_col].astype(float)
 df[lon_col] = df[lon_col].astype(float)
 
@@ -29,9 +33,10 @@ if valid_coords.empty:
 
 # Center map on San Francisco
 sf_center = [valid_coords[lat_col].mean(), valid_coords[lon_col].mean()]
-crime_map = folium.Map(location=sf_center, zoom_start=12)
 
-# Add points (set to mac 1000 for performance)
+# 1. POINT MAP
+point_map = folium.Map(location=sf_center, zoom_start=12)
+
 for _, row in valid_coords.sample(n=min(1000, len(valid_coords)), random_state=1).iterrows():
     folium.CircleMarker(
         location=[row[lat_col], row[lon_col]],
@@ -39,7 +44,22 @@ for _, row in valid_coords.sample(n=min(1000, len(valid_coords)), random_state=1
         color='red',
         fill=True,
         fill_opacity=0.5
-    ).add_to(crime_map)
+    ).add_to(point_map)
 
-crime_map.save('plots/sf_crime_map.html')
-print('Map saved to plots/sf_crime_map.html')
+point_map.save('plots/sf_crime_map.html')
+print('Point map saved to plots/sf_crime_map.html')
+
+# 2. HEATMAP
+heat_map = folium.Map(location=sf_center, zoom_start=12)
+
+heat_data = valid_coords[[lat_col, lon_col]].values.tolist()
+
+HeatMap(
+    heat_data,
+    radius=10,
+    blur=15,
+    max_zoom=13
+).add_to(heat_map)
+
+heat_map.save('plots/sf_crime_heat_map.html')
+print('Heatmap saved to plots/sf_crime_heat_map.html')
